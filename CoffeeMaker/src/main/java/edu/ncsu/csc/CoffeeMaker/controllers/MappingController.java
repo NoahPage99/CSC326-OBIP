@@ -113,9 +113,19 @@ public class MappingController {
         return "customRecipe";
     }
 
+
     @GetMapping ( { "/addInventory", "/addInventory.html" } )
     public String addInventoryForm ( final Model model ) {
         return "addInventory";
     }
+
+
+
+    @GetMapping ( { "/editRecipe", "/editRecipe.html" } )
+    public String editRecipeForm2 ( final Model model ) {
+        return "editRecipe";
+    }
+
+
 
 }
