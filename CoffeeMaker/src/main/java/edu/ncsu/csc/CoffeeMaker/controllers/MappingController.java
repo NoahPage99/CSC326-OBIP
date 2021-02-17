@@ -94,7 +94,6 @@ public class MappingController {
         return "makecoffee";
     }
 
-
     /**
      * On a GET request to /addIngredients, the MakeCoffeeController will return
      * /src/main/resources/templates/addIngredients.html.
@@ -108,10 +107,25 @@ public class MappingController {
         return "addIngredients";
 
     }
-  
+
     @GetMapping ( { "/customRecipe", "/customRecipe.html" } )
     public String customRecipeForm ( final Model model ) {
         return "customRecipe";
     }
+
+
+    @GetMapping ( { "/addInventory", "/addInventory.html" } )
+    public String addInventoryForm ( final Model model ) {
+        return "addInventory";
+    }
+
+
+
+    @GetMapping ( { "/editRecipe", "/editRecipe.html" } )
+    public String editRecipeForm2 ( final Model model ) {
+        return "editRecipe";
+    }
+
+
 
 }
