@@ -70,6 +70,8 @@ public class Inventory extends DomainObject {
      *
      * @throws IllegalArgumentException
      *             if the parameter isn't a positive integer
+     * 
+     * @return amount of ingredient
      */
     public int checkIngredient ( final String ingredient ) throws IllegalArgumentException {
         int amtIng = 0;
