@@ -108,4 +108,15 @@ public class APIRecipeController extends APIController {
 
         return new ResponseEntity( successResponse( name + " was deleted successfully" ), HttpStatus.OK );
     }
+
+    @PostMapping ( BASE_PATH + "/recipes/{name}" )
+    public ResponseEntity editRecipe ( @PathVariable final String name ) {
+        final Recipe recipe = service.findByName( name );
+        if ( null == recipe ) {
+            return new ResponseEntity( errorResponse( "No recipe found for name " + name ), HttpStatus.NOT_FOUND );
+        }
+        service.save( recipe );
+
+        return new ResponseEntity( successResponse( recipe.getName() + " successfully created" ), HttpStatus.OK );
+    }
 }
