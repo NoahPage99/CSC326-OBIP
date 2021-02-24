@@ -65,9 +65,9 @@ public class Inventory extends DomainObject {
      * Add the number of chocolate units in the inventory to the current amount
      * of chocolate units.
      *
-     * @param chocolate
-     *            amount of chocolate
-     * @return checked amount of chocolate
+     * @param ingredient
+     *            name of ingredient
+     *
      * @throws IllegalArgumentException
      *             if the parameter isn't a positive integer
      */
@@ -140,6 +140,7 @@ public class Inventory extends DomainObject {
      * @param ing
      *            ingredient to update
      *
+     * @return true if ingredient is good
      */
     public boolean addIngredient ( final Ingredient ing ) {
         for ( int i = 0; i < ingredients.size(); i++ ) {
