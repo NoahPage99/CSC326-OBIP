@@ -52,50 +52,26 @@ public class UpdateInventoryWebStepDefs extends CucumberTest {
     public void addIngredient ( final Integer amt, final String ing ) {
         if ( ing.equals( "coffee" ) ) {
 
-            driver.findElement( By.name( "coffee" ) ).clear();
-            driver.findElement( By.name( "coffee" ) ).sendKeys( amt.toString() );
-            driver.findElement( By.name( "milk" ) ).clear();
-            driver.findElement( By.name( "milk" ) ).sendKeys( "0" );
-            driver.findElement( By.name( "sugar" ) ).clear();
-            driver.findElement( By.name( "sugar" ) ).sendKeys( "0" );
-            driver.findElement( By.name( "chocolate" ) ).clear();
-            driver.findElement( By.name( "chocolate" ) ).sendKeys( "0" );
+            driver.findElement( By.name( "amount" ) ).clear();
+            driver.findElement( By.name( "amount" ) ).sendKeys( "0" );
 
         }
         else if ( ing.equals( "milk" ) ) {
 
-            driver.findElement( By.name( "coffee" ) ).clear();
-            driver.findElement( By.name( "coffee" ) ).sendKeys( "0" );
-            driver.findElement( By.name( "milk" ) ).clear();
-            driver.findElement( By.name( "milk" ) ).sendKeys( amt.toString() );
-            driver.findElement( By.name( "sugar" ) ).clear();
-            driver.findElement( By.name( "sugar" ) ).sendKeys( "0" );
-            driver.findElement( By.name( "chocolate" ) ).clear();
-            driver.findElement( By.name( "chocolate" ) ).sendKeys( "0" );
+            driver.findElement( By.name( "amount" ) ).clear();
+            driver.findElement( By.name( "amount" ) ).sendKeys( "0" );
 
         }
         else if ( ing.equals( "sugar" ) ) {
 
-            driver.findElement( By.name( "coffee" ) ).clear();
-            driver.findElement( By.name( "coffee" ) ).sendKeys( "0" );
-            driver.findElement( By.name( "milk" ) ).clear();
-            driver.findElement( By.name( "milk" ) ).sendKeys( "0" );
-            driver.findElement( By.name( "sugar" ) ).clear();
-            driver.findElement( By.name( "sugar" ) ).sendKeys( amt.toString() );
-            driver.findElement( By.name( "chocolate" ) ).clear();
-            driver.findElement( By.name( "chocolate" ) ).sendKeys( "0" );
+            driver.findElement( By.name( "amount" ) ).clear();
+            driver.findElement( By.name( "amount" ) ).sendKeys( "0" );
 
         }
         else if ( ing.equals( "chocolate" ) ) {
 
-            driver.findElement( By.name( "coffee" ) ).clear();
-            driver.findElement( By.name( "coffee" ) ).sendKeys( "0" );
-            driver.findElement( By.name( "milk" ) ).clear();
-            driver.findElement( By.name( "milk" ) ).sendKeys( "0" );
-            driver.findElement( By.name( "sugar" ) ).clear();
-            driver.findElement( By.name( "sugar" ) ).sendKeys( "0" );
-            driver.findElement( By.name( "chocolate" ) ).clear();
-            driver.findElement( By.name( "chocolate" ) ).sendKeys( amt.toString() );
+            driver.findElement( By.name( "amount" ) ).clear();
+            driver.findElement( By.name( "amount" ) ).sendKeys( "0" );
 
         }
 
@@ -107,50 +83,25 @@ public class UpdateInventoryWebStepDefs extends CucumberTest {
     public void addInvalidIngredient ( final Integer amt, final String ing ) {
         if ( ing.equals( "coffee" ) ) {
 
-            driver.findElement( By.name( "coffee" ) ).clear();
-            driver.findElement( By.name( "coffee" ) ).sendKeys( amt.toString() );
-            driver.findElement( By.name( "milk" ) ).clear();
-            driver.findElement( By.name( "milk" ) ).sendKeys( "0" );
-            driver.findElement( By.name( "sugar" ) ).clear();
-            driver.findElement( By.name( "sugar" ) ).sendKeys( "0" );
-            driver.findElement( By.name( "chocolate" ) ).clear();
-            driver.findElement( By.name( "chocolate" ) ).sendKeys( "0" );
+            driver.findElement( By.name( "amount" ) ).clear();
+            driver.findElement( By.name( "amount" ) ).sendKeys( "0" );
 
         }
         else if ( ing.equals( "milk" ) ) {
 
-            driver.findElement( By.name( "coffee" ) ).clear();
-            driver.findElement( By.name( "coffee" ) ).sendKeys( "0" );
-            driver.findElement( By.name( "milk" ) ).clear();
-            driver.findElement( By.name( "milk" ) ).sendKeys( amt.toString() );
-            driver.findElement( By.name( "sugar" ) ).clear();
-            driver.findElement( By.name( "sugar" ) ).sendKeys( "0" );
-            driver.findElement( By.name( "chocolate" ) ).clear();
-            driver.findElement( By.name( "chocolate" ) ).sendKeys( "0" );
+            driver.findElement( By.name( "amount" ) ).clear();
+            driver.findElement( By.name( "amount" ) ).sendKeys( "0" );
 
         }
         else if ( ing.equals( "sugar" ) ) {
 
-            driver.findElement( By.name( "coffee" ) ).clear();
-            driver.findElement( By.name( "coffee" ) ).sendKeys( "0" );
-            driver.findElement( By.name( "milk" ) ).clear();
-            driver.findElement( By.name( "milk" ) ).sendKeys( "0" );
-            driver.findElement( By.name( "sugar" ) ).clear();
-            driver.findElement( By.name( "sugar" ) ).sendKeys( amt.toString() );
-            driver.findElement( By.name( "chocolate" ) ).clear();
-            driver.findElement( By.name( "chocolate" ) ).sendKeys( "0" );
-
+            driver.findElement( By.name( "amount" ) ).clear();
+            driver.findElement( By.name( "amount" ) ).sendKeys( "0" );
         }
         else if ( ing.equals( "chocolate" ) ) {
 
-            driver.findElement( By.name( "coffee" ) ).clear();
-            driver.findElement( By.name( "coffee" ) ).sendKeys( "0" );
-            driver.findElement( By.name( "milk" ) ).clear();
-            driver.findElement( By.name( "milk" ) ).sendKeys( "0" );
-            driver.findElement( By.name( "sugar" ) ).clear();
-            driver.findElement( By.name( "sugar" ) ).sendKeys( "0" );
-            driver.findElement( By.name( "chocolate" ) ).clear();
-            driver.findElement( By.name( "chocolate" ) ).sendKeys( amt.toString() );
+            driver.findElement( By.name( "amount" ) ).clear();
+            driver.findElement( By.name( "amount" ) ).sendKeys( amt.toString() );
 
         }
 

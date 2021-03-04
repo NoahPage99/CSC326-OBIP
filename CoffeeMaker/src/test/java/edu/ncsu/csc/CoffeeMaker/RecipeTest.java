@@ -75,20 +75,6 @@ public class RecipeTest {
         assertFalse( r1.equals( r3 ) );
         r1.hashCode();
         assertEquals( r2.toString(), "Mocha" );
-
-        final Ingredient i3 = new Ingredient( "Milk", 1 );
-
-        r.editRecipe( r1, i3, "Coffee", false );
-
-        assertEquals( r.getName(), "Coffee" );
-        assertEquals( r.getIngredient().get( 1 ), i3 );
-
-        r.editRecipe( r1, i3, "White Coffee", true );
-
-        assertEquals( r.getName(), "White Coffee" );
-        // make sure it deletes and it does.
-        assertEquals( r.getIngredient().size(), 1 );
-
     }
 
     // @Test

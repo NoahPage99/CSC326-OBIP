@@ -76,9 +76,9 @@ public class MappingController {
      *            underlying UI model
      * @return contents of the page
      */
-    @GetMapping ( { "/inventory", "/inventory.html" } )
+    @GetMapping ( { "/addInventory", "/addInventory.html" } )
     public String inventoryForm ( final Model model ) {
-        return "inventory";
+        return "addInventory";
     }
 
     /**
@@ -94,7 +94,6 @@ public class MappingController {
         return "makecoffee";
     }
 
-
     /**
      * On a GET request to /addIngredients, the MakeCoffeeController will return
      * /src/main/resources/templates/addIngredients.html.
@@ -108,7 +107,7 @@ public class MappingController {
         return "addIngredients";
 
     }
-  
+
     @GetMapping ( { "/customRecipe", "/customRecipe.html" } )
     public String customRecipeForm ( final Model model ) {
         return "customRecipe";

@@ -89,6 +89,31 @@ public class APIRecipeController extends APIController {
     }
 
     /**
+     * REST API method to provide POST access to the Recipe model. This is used
+     * to create a new Recipe by automatically converting the JSON RequestBody
+     * provided to a Recipe object. Invalid JSON will fail.
+     *
+     * @param recipe
+     *            The valid Recipe to be saved.
+     * @return ResponseEntity indicating success if the Recipe could be saved to
+     *         the inventory, or an error if it could not be
+     */
+    @PostMapping ( BASE_PATH + "/recipe" )
+    public ResponseEntity editRecipe ( @RequestBody final Recipe recipe ) {
+
+        if ( service.findAll().size() < 3 ) {
+            service.save( recipe );
+            return new ResponseEntity( successResponse( recipe.getName() + " successfully created" ), HttpStatus.OK );
+        }
+        else {
+            return new ResponseEntity(
+                    errorResponse( "Insufficient space in recipe book for recipe " + recipe.getName() ),
+                    HttpStatus.INSUFFICIENT_STORAGE );
+        }
+
+    }
+
+    /**
      * REST API method to allow deleting a Recipe from the CoffeeMaker's
      * Inventory, by making a DELETE request to the API endpoint and indicating
      * the recipe to delete (as a path variable)
@@ -109,14 +134,4 @@ public class APIRecipeController extends APIController {
         return new ResponseEntity( successResponse( name + " was deleted successfully" ), HttpStatus.OK );
     }
 
-    @PostMapping ( BASE_PATH + "/recipes/{name}" )
-    public ResponseEntity editRecipe ( @PathVariable final String name ) {
-        final Recipe recipe = service.findByName( name );
-        if ( null == recipe ) {
-            return new ResponseEntity( errorResponse( "No recipe found for name " + name ), HttpStatus.NOT_FOUND );
-        }
-        service.save( recipe );
-
-        return new ResponseEntity( successResponse( recipe.getName() + " successfully created" ), HttpStatus.OK );
-    }
 }
