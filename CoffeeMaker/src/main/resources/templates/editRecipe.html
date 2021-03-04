@@ -83,6 +83,8 @@
 				$scope.success = false;
 				$scope.failure = false;
 				$scope.del = $scope.selectedName.name;
+				console.log($scope.selectedName);
+				console.log($scope.selectedName.name);
 				$http.delete("/api/v1/recipes/" + $scope.del).then(
 						function(success) {
 							$scope.success = true;

@@ -91,43 +91,6 @@ public class AddRecipeTest extends SeleniumTest {
      * @throws Exception
      */
     @Test
-    public void testAddRecipe10 () throws Exception {
-        addRecipeHelper();
-
-        driver.get( baseUrl );
-
-        driver.findElement( By.linkText( "Edit Recipe" ) ).click();
-
-        // Enter the recipe information
-        driver.findElement( By.name( "name2" ) ).clear();
-        driver.findElement( By.name( "name2" ) ).sendKeys( "Coffee" );
-        driver.findElement( By.name( "price" ) ).clear();
-        driver.findElement( By.name( "price" ) ).sendKeys( "50" );
-        final Select drp = new Select( driver.findElement( By.name( "name" ) ) );
-        drp.selectByVisibleText( "Coffee" );
-        // driver.findElement( By.name( "selectedName" ) ).clear();
-        // driver.findElement( By.name( "selectedName" ) ).sendKeys( "3" );
-        driver.findElement( By.name( "amount" ) ).clear();
-        driver.findElement( By.name( "amount" ) ).sendKeys( "1" );
-        driver.findElement( By.name( "addIngBtn" ) ).click();
-        // driver.findElement( By.name( "sugar" ) ).clear();
-        // driver.findElement( By.name( "sugar" ) ).sendKeys( "1" );
-        // driver.findElement( By.name( "chocolate" ) ).clear();
-        // driver.findElement( By.name( "chocolate" ) ).sendKeys( "1" );
-
-        // Submit the recipe.
-
-        // Submit the recipe.
-        driver.findElement( By.cssSelector( "input[type=\"submit\"]" ) ).click();
-
-    }
-
-    /**
-     * Test for a adding a recipe. Expect to get an appropriate success message.
-     *
-     * @throws Exception
-     */
-    @Test
     public void testAddRecipe1 () throws Exception {
         addRecipeHelper();
 
