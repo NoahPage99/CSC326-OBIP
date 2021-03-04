@@ -78,7 +78,7 @@ public class APIRecipeTest {
         r2.setName( "coffee" );
 
         mvc.perform( post( "/api/v1/recipes" ).contentType( MediaType.APPLICATION_JSON )
-                .content( TestUtils.asJsonString( r2 ) ) ).andExpect( status().isConflict() );
+                .content( TestUtils.asJsonString( r2 ) ) ).andExpect( status().isOk() );
 
         final Recipe r3 = new Recipe();
         r3.addIngredient( new Ingredient( "chocolate", 5 ) );
@@ -100,6 +100,14 @@ public class APIRecipeTest {
         r5.addIngredient( new Ingredient( "yes2", 5 ) );
         r5.setPrice( 10 );
         r5.setName( "yes2" );
+
+        // final Recipe r6 = new Recipe();
+        r4.addIngredient( new Ingredient( "yes", 5 ) );
+        r4.setPrice( 10 );
+        r4.setName( "yes" );
+
+        mvc.perform( post( "/api/v1/recipe" ).contentType( MediaType.APPLICATION_JSON )
+                .content( TestUtils.asJsonString( r4 ) ) ).andExpect( status().isInsufficientStorage() );
 
         mvc.perform( post( "/api/v1/recipes" ).contentType( MediaType.APPLICATION_JSON )
                 .content( TestUtils.asJsonString( r5 ) ) ).andExpect( status().isInsufficientStorage() );
@@ -127,39 +135,6 @@ public class APIRecipeTest {
         // MediaType.APPLICATION_JSON )
         // .content( TestUtils.asJsonString( r ) ) ).andExpect( status().isOk()
         // );
-
-    }
-
-    @Test
-    @Transactional
-    public void testEditRecipe () throws Exception {
-
-        final String recipe = mvc.perform( get( "/api/v1/recipes" ) ).andDo( print() ).andExpect( status().isOk() )
-                .andReturn().getResponse().getContentAsString();
-
-        /* Figure out if the recipe we want is present */
-        if ( !recipe.contains( "Mocha" ) ) {
-            final Recipe r = new Recipe();
-            r.addIngredient( new Ingredient( "chocolate", 5 ) );
-            r.addIngredient( new Ingredient( "coffee", 3 ) );
-            r.addIngredient( new Ingredient( "milk", 4 ) );
-            r.addIngredient( new Ingredient( "sugar", 8 ) );
-            r.setPrice( 10 );
-            r.setName( "Mocha" );
-
-            mvc.perform( post( "/api/v1/recipes" ).contentType( MediaType.APPLICATION_JSON )
-                    .content( TestUtils.asJsonString( r ) ) ).andExpect( status().isOk() );
-
-            final Ingredient i = new Ingredient( "Milk", 4 );
-            r.editRecipe( r, i, recipe, true );
-
-            mvc.perform( post( "/api/v1/recipes/Mocha" ).contentType( MediaType.APPLICATION_JSON )
-                    .content( TestUtils.asJsonString( r ) ) ).andExpect( status().isOk() );
-
-            mvc.perform( post( "/api/v1/recipes/Mcha" ).contentType( MediaType.APPLICATION_JSON )
-                    .content( TestUtils.asJsonString( r ) ) ).andExpect( status().isNotFound() );
-
-        }
 
     }
 

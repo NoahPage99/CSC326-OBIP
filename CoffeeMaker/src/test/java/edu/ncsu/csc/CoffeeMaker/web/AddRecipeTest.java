@@ -9,6 +9,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.openqa.selenium.By;
+import org.openqa.selenium.support.ui.Select;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -44,10 +45,22 @@ public class AddRecipeTest extends SeleniumTest {
         baseUrl = "http://localhost:8080";
         driver.manage().timeouts().implicitlyWait( 10, TimeUnit.SECONDS );
 
+        driver.get( baseUrl );
+        driver.findElement( By.linkText( "Add an Ingredient" ) ).click();
+
+        driver.findElement( By.name( "name" ) ).clear();
+        driver.findElement( By.name( "name" ) ).sendKeys( "coffee" );
+        driver.findElement( By.name( "amount" ) ).clear();
+        driver.findElement( By.name( "amount" ) ).sendKeys( "30" );
+
+        driver.findElement( By.cssSelector( "input[type=\"submit\"]" ) ).click();
+        driver.findElement( By.linkText( "Home" ) ).click();
+
     }
 
     private void addRecipeHelper () {
         driver.get( baseUrl );
+
         driver.findElement( By.linkText( "Add a Recipe" ) ).click();
 
         // Enter the recipe information
@@ -55,17 +68,58 @@ public class AddRecipeTest extends SeleniumTest {
         driver.findElement( By.name( "name" ) ).sendKeys( "Coffee" );
         driver.findElement( By.name( "price" ) ).clear();
         driver.findElement( By.name( "price" ) ).sendKeys( "50" );
-        driver.findElement( By.name( "coffee" ) ).clear();
-        driver.findElement( By.name( "coffee" ) ).sendKeys( "3" );
-        driver.findElement( By.name( "milk" ) ).clear();
-        driver.findElement( By.name( "milk" ) ).sendKeys( "1" );
-        driver.findElement( By.name( "sugar" ) ).clear();
-        driver.findElement( By.name( "sugar" ) ).sendKeys( "1" );
-        driver.findElement( By.name( "chocolate" ) ).clear();
-        driver.findElement( By.name( "chocolate" ) ).sendKeys( "1" );
+        final Select drp = new Select( driver.findElement( By.name( "ingr" ) ) );
+        drp.selectByVisibleText( "coffee" );
+        // driver.findElement( By.name( "selectedName" ) ).clear();
+        // driver.findElement( By.name( "selectedName" ) ).sendKeys( "3" );
+        driver.findElement( By.name( "amount" ) ).clear();
+        driver.findElement( By.name( "amount" ) ).sendKeys( "1" );
+        driver.findElement( By.name( "addIngBtn" ) ).click();
+        // driver.findElement( By.name( "sugar" ) ).clear();
+        // driver.findElement( By.name( "sugar" ) ).sendKeys( "1" );
+        // driver.findElement( By.name( "chocolate" ) ).clear();
+        // driver.findElement( By.name( "chocolate" ) ).sendKeys( "1" );
 
         // Submit the recipe.
         driver.findElement( By.cssSelector( "input[type=\"submit\"]" ) ).click();
+
+    }
+
+    /**
+     * Test for a adding a recipe. Expect to get an appropriate success message.
+     *
+     * @throws Exception
+     */
+    @Test
+    public void testAddRecipe10 () throws Exception {
+        addRecipeHelper();
+
+        driver.get( baseUrl );
+
+        driver.findElement( By.linkText( "Edit Recipe" ) ).click();
+
+        // Enter the recipe information
+        driver.findElement( By.name( "name2" ) ).clear();
+        driver.findElement( By.name( "name2" ) ).sendKeys( "Coffee" );
+        driver.findElement( By.name( "price" ) ).clear();
+        driver.findElement( By.name( "price" ) ).sendKeys( "50" );
+        final Select drp = new Select( driver.findElement( By.name( "name" ) ) );
+        drp.selectByVisibleText( "Coffee" );
+        // driver.findElement( By.name( "selectedName" ) ).clear();
+        // driver.findElement( By.name( "selectedName" ) ).sendKeys( "3" );
+        driver.findElement( By.name( "amount" ) ).clear();
+        driver.findElement( By.name( "amount" ) ).sendKeys( "1" );
+        driver.findElement( By.name( "addIngBtn" ) ).click();
+        // driver.findElement( By.name( "sugar" ) ).clear();
+        // driver.findElement( By.name( "sugar" ) ).sendKeys( "1" );
+        // driver.findElement( By.name( "chocolate" ) ).clear();
+        // driver.findElement( By.name( "chocolate" ) ).sendKeys( "1" );
+
+        // Submit the recipe.
+
+        // Submit the recipe.
+        driver.findElement( By.cssSelector( "input[type=\"submit\"]" ) ).click();
+
     }
 
     /**
@@ -79,6 +133,7 @@ public class AddRecipeTest extends SeleniumTest {
 
         // Make sure the proper message was displayed.
         assertTextPresent( "Recipe Created", driver );
+        driver.findElement( By.linkText( "Home" ) ).click();
 
         System.out.println( "Recipe created" );
     }
@@ -100,6 +155,8 @@ public class AddRecipeTest extends SeleniumTest {
         addRecipeHelper();
 
         assertTextPresent( "Error while adding recipe", driver );
+
+        driver.findElement( By.linkText( "Home" ) ).click();
     }
 
     @Override
@@ -109,6 +166,7 @@ public class AddRecipeTest extends SeleniumTest {
         if ( !"".equals( verificationErrorString ) ) {
             fail( verificationErrorString );
         }
+        DBUtils.resetDB( dataSource );
     }
 
 }

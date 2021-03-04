@@ -34,14 +34,14 @@ public class Recipe extends DomainObject {
     private Integer          price;
 
     @OneToMany ( cascade = CascadeType.ALL, fetch = FetchType.EAGER )
-    private List<Ingredient> ingredients;
+    private List<Ingredient> ingredient;
 
     /**
      * Creates a default recipe for the coffee maker.
      */
     public Recipe () {
 
-        ingredients = new LinkedList<Ingredient>();
+        ingredient = new LinkedList<Ingredient>();
         this.name = "";
     }
 
@@ -104,15 +104,11 @@ public class Recipe extends DomainObject {
     }
 
     public void addIngredient ( final Ingredient i ) {
-        ingredients.add( i );
-    }
-
-    public void deleteIngredient ( final Ingredient i ) {
-        ingredients.remove( i );
+        ingredient.add( i );
     }
 
     public List<Ingredient> getIngredient () {
-        return ingredients;
+        return ingredient;
     }
 
     /**
@@ -140,21 +136,9 @@ public class Recipe extends DomainObject {
      *            recipe to model update from
      */
     public void updateRecipe ( final Recipe r ) {
-        ingredients = r.getIngredient();
+        ingredient = r.getIngredient();
         name = r.getName();
         setId( id );
-    }
-
-    public void editRecipe ( final Recipe r, final Ingredient i, final String name, final boolean delete ) {
-        if ( delete ) {
-            deleteIngredient( i );
-        }
-        else {
-            addIngredient( i );
-        }
-
-        this.name = name;
-        ingredients = r.getIngredient();
     }
 
     /**
@@ -166,9 +150,9 @@ public class Recipe extends DomainObject {
      *         that name
      */
     public Ingredient getIngredientByName ( final String name ) {
-        for ( int i = 0; i < ingredients.size(); i++ ) {
-            if ( ingredients.get( i ).getIngredient().equals( name ) ) {
-                return ingredients.get( i );
+        for ( int i = 0; i < ingredient.size(); i++ ) {
+            if ( ingredient.get( i ).getIngredient().equals( name ) ) {
+                return ingredient.get( i );
             }
         }
         return null;
