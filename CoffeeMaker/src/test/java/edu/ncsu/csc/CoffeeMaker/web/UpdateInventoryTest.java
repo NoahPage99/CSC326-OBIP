@@ -58,14 +58,8 @@ public class UpdateInventoryTest extends SeleniumTest {
         driver.findElement( By.linkText( "Update Inventory" ) ).click();
 
         // Enter the amount of each ingredient
-        driver.findElement( By.name( "coffee" ) ).clear();
-        driver.findElement( By.name( "coffee" ) ).sendKeys( "5" );
-        driver.findElement( By.name( "milk" ) ).clear();
-        driver.findElement( By.name( "milk" ) ).sendKeys( "3" );
-        driver.findElement( By.name( "sugar" ) ).clear();
-        driver.findElement( By.name( "sugar" ) ).sendKeys( "7" );
-        driver.findElement( By.name( "chocolate" ) ).clear();
-        driver.findElement( By.name( "chocolate" ) ).sendKeys( "2" );
+        driver.findElement( By.name( "amount" ) ).clear();
+        driver.findElement( By.name( "amount" ) ).sendKeys( "3" );
 
         // Submit the inventory.
         driver.findElement( By.cssSelector( "input[type=\"submit\"]" ) ).click();
@@ -87,14 +81,8 @@ public class UpdateInventoryTest extends SeleniumTest {
         driver.findElement( By.linkText( "Update Inventory" ) ).click();
 
         // Enter the amount of each ingredient
-        driver.findElement( By.name( "coffee" ) ).clear();
-        driver.findElement( By.name( "coffee" ) ).sendKeys( "-5" );
-        driver.findElement( By.name( "milk" ) ).clear();
-        driver.findElement( By.name( "milk" ) ).sendKeys( "3" );
-        driver.findElement( By.name( "sugar" ) ).clear();
-        driver.findElement( By.name( "sugar" ) ).sendKeys( "7" );
-        driver.findElement( By.name( "chocolate" ) ).clear();
-        driver.findElement( By.name( "chocolate" ) ).sendKeys( "2" );
+        driver.findElement( By.name( "amount" ) ).clear();
+        driver.findElement( By.name( "amount" ) ).sendKeys( "-5" );
 
         // Make sure the proper message was displayed.
         assertTextPresent( "Error while updating inventory", driver );
@@ -114,14 +102,8 @@ public class UpdateInventoryTest extends SeleniumTest {
         driver.findElement( By.linkText( "Update Inventory" ) ).click();
 
         // Enter the amount of each ingredient
-        driver.findElement( By.name( "coffee" ) ).clear();
-        driver.findElement( By.name( "coffee" ) ).sendKeys( "5" );
-        driver.findElement( By.name( "milk" ) ).clear();
-        driver.findElement( By.name( "milk" ) ).sendKeys( "-3" );
-        driver.findElement( By.name( "sugar" ) ).clear();
-        driver.findElement( By.name( "sugar" ) ).sendKeys( "7" );
-        driver.findElement( By.name( "chocolate" ) ).clear();
-        driver.findElement( By.name( "chocolate" ) ).sendKeys( "2" );
+        driver.findElement( By.name( "amount" ) ).clear();
+        driver.findElement( By.name( "amount" ) ).sendKeys( "5" );
 
         // Make sure the proper message was displayed.
         assertTextPresent( "Error while updating inventory", driver );
@@ -141,14 +123,8 @@ public class UpdateInventoryTest extends SeleniumTest {
         driver.findElement( By.linkText( "Update Inventory" ) ).click();
 
         // Enter the amount of each ingredient
-        driver.findElement( By.name( "coffee" ) ).clear();
-        driver.findElement( By.name( "coffee" ) ).sendKeys( "5" );
-        driver.findElement( By.name( "milk" ) ).clear();
-        driver.findElement( By.name( "milk" ) ).sendKeys( "3" );
-        driver.findElement( By.name( "sugar" ) ).clear();
-        driver.findElement( By.name( "sugar" ) ).sendKeys( "-7" );
-        driver.findElement( By.name( "chocolate" ) ).clear();
-        driver.findElement( By.name( "chocolate" ) ).sendKeys( "2" );
+        driver.findElement( By.name( "amount" ) ).clear();
+        driver.findElement( By.name( "amount" ) ).sendKeys( "5" );
 
         // Make sure the proper message was displayed.
         assertTextPresent( "Error while updating inventory", driver );
@@ -168,14 +144,8 @@ public class UpdateInventoryTest extends SeleniumTest {
         driver.findElement( By.linkText( "Update Inventory" ) ).click();
 
         // Enter the amount of each ingredient
-        driver.findElement( By.name( "coffee" ) ).clear();
-        driver.findElement( By.name( "coffee" ) ).sendKeys( "5" );
-        driver.findElement( By.name( "milk" ) ).clear();
-        driver.findElement( By.name( "milk" ) ).sendKeys( "3" );
-        driver.findElement( By.name( "sugar" ) ).clear();
-        driver.findElement( By.name( "sugar" ) ).sendKeys( "7" );
-        driver.findElement( By.name( "chocolate" ) ).clear();
-        driver.findElement( By.name( "chocolate" ) ).sendKeys( "-2" );
+        driver.findElement( By.name( "amount" ) ).clear();
+        driver.findElement( By.name( "amount" ) ).sendKeys( "5" );
 
         // Make sure the proper message was displayed.
         assertTextPresent( "Error while updating inventory", driver );
@@ -195,14 +165,8 @@ public class UpdateInventoryTest extends SeleniumTest {
         driver.findElement( By.linkText( "Update Inventory" ) ).click();
 
         // Enter the amount of each ingredient
-        driver.findElement( By.name( "coffee" ) ).clear();
-        driver.findElement( By.name( "coffee" ) ).sendKeys( "a" );
-        driver.findElement( By.name( "milk" ) ).clear();
-        driver.findElement( By.name( "milk" ) ).sendKeys( "3" );
-        driver.findElement( By.name( "sugar" ) ).clear();
-        driver.findElement( By.name( "sugar" ) ).sendKeys( "7" );
-        driver.findElement( By.name( "chocolate" ) ).clear();
-        driver.findElement( By.name( "chocolate" ) ).sendKeys( "2" );
+        driver.findElement( By.name( "amount" ) ).clear();
+        driver.findElement( By.name( "amount" ) ).sendKeys( "a" );
 
         // Make sure the proper message was displayed.
         assertTextPresent( "Error while updating inventory", driver );
@@ -222,14 +186,8 @@ public class UpdateInventoryTest extends SeleniumTest {
         driver.findElement( By.linkText( "Update Inventory" ) ).click();
 
         // Enter the amount of each ingredient
-        driver.findElement( By.name( "coffee" ) ).clear();
-        driver.findElement( By.name( "coffee" ) ).sendKeys( "" );
-        driver.findElement( By.name( "milk" ) ).clear();
-        driver.findElement( By.name( "milk" ) ).sendKeys( "3" );
-        driver.findElement( By.name( "sugar" ) ).clear();
-        driver.findElement( By.name( "sugar" ) ).sendKeys( "7" );
-        driver.findElement( By.name( "chocolate" ) ).clear();
-        driver.findElement( By.name( "chocolate" ) ).sendKeys( "2" );
+        driver.findElement( By.name( "amount" ) ).clear();
+        driver.findElement( By.name( "amount" ) ).sendKeys( "" );
 
         // Make sure the proper message was displayed.
         assertTextPresent( "Error while updating inventory", driver );
@@ -249,14 +207,8 @@ public class UpdateInventoryTest extends SeleniumTest {
         driver.findElement( By.linkText( "Update Inventory" ) ).click();
 
         // Enter the amount of each ingredient
-        driver.findElement( By.name( "coffee" ) ).clear();
-        driver.findElement( By.name( "coffee" ) ).sendKeys( "\0" );
-        driver.findElement( By.name( "milk" ) ).clear();
-        driver.findElement( By.name( "milk" ) ).sendKeys( "3" );
-        driver.findElement( By.name( "sugar" ) ).clear();
-        driver.findElement( By.name( "sugar" ) ).sendKeys( "7" );
-        driver.findElement( By.name( "chocolate" ) ).clear();
-        driver.findElement( By.name( "chocolate" ) ).sendKeys( "2a" );
+        driver.findElement( By.name( "amount" ) ).clear();
+        driver.findElement( By.name( "amount" ) ).sendKeys( "\0" );
 
         // Make sure the proper message was displayed.
         assertTextPresent( "Error while updating inventory", driver );
